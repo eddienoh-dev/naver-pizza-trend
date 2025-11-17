@@ -7,6 +7,23 @@ import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 import platform
 
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+import os
+
+# ✔ 리눅스 서버에도 한글폰트를 강제로 등록
+font_path = os.path.join(os.path.dirname(__file__), "NanumGothic.ttf")
+
+if not os.path.exists(font_path):
+    import urllib.request
+    url = "https://github.com/naver/nanumfont/raw/master/NanumGothic.ttf"
+    urllib.request.urlretrieve(url, font_path)
+
+fm.fontManager.addfont(font_path)
+plt.rc('font', family='NanumGothic')
+plt.rcParams['axes.unicode_minus'] = False
+
+
 # ✅ 한글 폰트 설정
 if platform.system() == "Windows":
     plt.rc('font', family='Malgun Gothic')
