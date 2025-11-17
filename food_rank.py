@@ -201,6 +201,9 @@ if st.button("🚀 트렌드 분석 실행"):
         growth_df = pd.DataFrame(growth_list, columns=["브랜드", "상승률"])
         growth_df = growth_df[growth_df["상승률"] > 0].sort_values("상승률", ascending=False).head(5)
 
+        st.markdown("---")
+        st.caption("© 2025 Pizza Hut Korea IT - Eddie Noh 🍕")
+
         st.table(growth_df)
 
         # ------------------------------
