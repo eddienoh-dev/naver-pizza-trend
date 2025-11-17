@@ -51,10 +51,11 @@ category_brands = {
         {"groupName": "도미노피자", "keywords": ["도미노피자", "도미도", "Domino", "Domino's Pizza", "도미노"]},
         {"groupName": "미스터피자", "keywords": ["미스터피자", "Mr피자", "Mr.Pizza"]},
         {"groupName": "피자알볼로", "keywords": ["피자알볼로", "알볼로", "알볼로피자"]},
-        {"groupName": "7번가피자", "keywords": ["7번가피자", "세븐번가피자", "세븐가피자"]},
-        {"groupName": "피자나라치킨공주", "keywords": ["피자나라치킨공주", "피자나라 치킨공주", "피치공"]},
+        {"groupName": "피자나라치킨공주", "keywords": ["피자나라치킨공주", "피자나라 치킨공주", "피치공", "피자나라"]},
         {"groupName": "파파존스피자", "keywords": ["파파존스피자", "파파존스", "Papa John's"]},
         {"groupName": "피자스쿨", "keywords": ["피자스쿨", "피자 스쿨"]},
+        {"groupName": "반올림피자", "keywords": ["반올림피자", "반올림", "반올림피자샵"]},
+        {"groupName": "청년피자", "keywords": ["청년피자"]},
     ],
     "햄버거": [
         {"groupName": "맥도날드", "keywords": ["맥도날드", "McDonald's", "맥날"]},
