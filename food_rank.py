@@ -76,16 +76,26 @@ category_brands = {
 # ------------------------------
 #  ✔ 기본 날짜 자동 설정 (어제 ~ 일주일 전)
 # ------------------------------
-today = datetime.now()
-end_date_default = (today - timedelta(days=1)).strftime("%Y-%m-%d")
-start_date_default = (today - timedelta(days=7)).strftime("%Y-%m-%d")
+today = datetime.now().date()
+end_date_default = today - timedelta(days=1)
+start_date_default = today - timedelta(days=7)
 
 
 # ------------------------------
 #  ✔ Streamlit 입력 UI
 # ------------------------------
-start_date = st.text_input("조회 시작일 (YYYY-MM-DD)", start_date_default)
-end_date = st.text_input("조회 종료일 (YYYY-MM-DD)", end_date_default)
+start_date_input = st.date_input(
+    "조회 시작일 (YYYY-MM-DD)",
+    start_date_default,
+    format="YYYY-MM-DD"
+)
+end_date_input = st.date_input(
+    "조회 종료일 (YYYY-MM-DD)",
+    end_date_default,
+    format="YYYY-MM-DD"
+)
+start_date = start_date_input.strftime("%Y-%m-%d")
+end_date = end_date_input.strftime("%Y-%m-%d")
 time_unit = st.selectbox("시간 단위", ["date", "week", "month"], index=0)
 
 selected_categories = st.multiselect(
@@ -201,6 +211,9 @@ if st.button("🚀 트렌드 분석 실행"):
         growth_df = pd.DataFrame(growth_list, columns=["브랜드", "상승률"])
         growth_df = growth_df[growth_df["상승률"] > 0].sort_values("상승률", ascending=False).head(5)
 
+        st.markdown("---")
+        st.caption("© 2025 Pizza Hut Korea IT - Eddie Noh 🍕")
+
         st.table(growth_df)
 
         # ------------------------------
@@ -209,8 +222,5 @@ if st.button("🚀 트렌드 분석 실행"):
         st.markdown("---")
         st.subheader("📋 원본 데이터")
         st.dataframe(df)
-
-        st.markdown("---")
-        st.caption("© 2025 Pizza Hut Korea IT - Eddie Noh 🍕")
 
 # END
